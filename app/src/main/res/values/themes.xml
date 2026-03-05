@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MusicMood" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1DB954</item>
+        <item name="colorPrimaryVariant">#169C46</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorSecondary">#1DB954</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="android:windowBackground">#121212</item>
+        <item name="android:statusBarColor">#121212</item>
+        <item name="android:navigationBarColor">#121212</item>
+        <item name="chipStyle">@style/ChipStyle</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetStyle</item>
+        <item name="sliderStyle">@style/SliderStyle</item>
+    </style>
+
+    <style name="ChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textColor">@color/chip_text_selector</item>
+        <item name="chipBackgroundColor">@color/chip_bg_selector</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">#333333</item>
+        <item name="chipCornerRadius">20dp</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetShapeStyle</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetShapeStyle" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearance">@style/SheetShape</item>
+        <item name="backgroundTint">#282828</item>
+    </style>
+
+    <style name="SheetShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+    </style>
+
+    <style name="SliderStyle" parent="Widget.MaterialComponents.Slider">
+        <item name="trackColorActive">#1DB954</item>
+        <item name="trackColorInactive">#535353</item>
+        <item name="thumbColor">#FFFFFF</item>
+        <item name="thumbRadius">6dp</item>
+        <item name="trackHeight">4dp</item>
+    </style>
+
+    <style name="NavTextActive">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="NavTextInactive">
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>

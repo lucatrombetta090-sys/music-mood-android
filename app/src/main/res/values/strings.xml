@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Music Mood</string>
+
+    <!-- Navigazione -->
+    <string name="nav_library">Libreria</string>
+    <string name="nav_player">Riproduttore</string>
+    <string name="nav_stats">Statistiche</string>
+
+    <!-- Libreria -->
+    <string name="btn_scan">SCANSIONA</string>
+    <string name="hint_search">Cerca titolo, artista…</string>
+    <string name="lbl_filters">Filtri</string>
+    <string name="lbl_active_filters">Filtri (%d)</string>
+    <string name="msg_no_match">Nessun brano corrisponde ai filtri</string>
+    <string name="msg_scan_start">Ricerca file audio in corso…</string>
+    <string name="msg_no_files">Nessun file audio trovato. Controlla i permessi e il percorso selezionato.</string>
+    <string name="msg_perm_denied">Permesso negato. Vai in Impostazioni → Autorizzazioni.</string>
+    <string name="msg_completed">Completato: %d brani analizzati</string>
+    <string name="msg_analyzing">Analisi mood %d/%d…</string>
+
+    <!-- Mood -->
+    <string name="mood_all">Tutti</string>
+    <string name="mood_energico">Energico</string>
+    <string name="mood_positivo">Positivo</string>
+    <string name="mood_aggressivo">Aggressivo</string>
+    <string name="mood_malinconico">Malinconico</string>
+
+    <!-- Folder picker -->
+    <string name="dlg_folder_title">Dove cercare la musica?</string>
+    <string name="folder_all">Tutta la musica (dispositivo)</string>
+    <string name="folder_music">Music</string>
+    <string name="folder_downloads">Download</string>
+    <string name="folder_whatsapp">WhatsApp Audio</string>
+    <string name="folder_telegram">Telegram Audio</string>
+    <string name="btn_custom_path">Percorso personalizzato</string>
+    <string name="dlg_path_title">Percorso cartella</string>
+    <string name="btn_scan_action">Scansiona</string>
+    <string name="btn_cancel">Annulla</string>
+
+    <!-- Filtri -->
+    <string name="lbl_genre">Genere</string>
+    <string name="lbl_year">Anno</string>
+    <string name="btn_apply">Applica</string>
+    <string name="btn_reset">Reset</string>
+
+    <!-- Player -->
+    <string name="no_song">Nessun brano selezionato\n\nVai in Libreria,\nscansiona e tocca un brano</string>
+    <string name="unknown_title">Sconosciuto</string>
+    <string name="unknown_artist">Artista sconosciuto</string>
+    <string name="btn_loop">🔁  Loop</string>
+    <string name="btn_shuffle">🔀  Casuale</string>
+
+    <!-- Statistiche -->
+    <string name="stats_title">Statistiche</string>
+    <string name="stats_empty">Nessun dato disponibile.\n\nVai in Libreria e scansiona la tua musica.</string>
+    <string name="stats_library">📊 Libreria</string>
+    <string name="stats_total">Brani totali</string>
+    <string name="stats_analyzed">Analizzati</string>
+    <string name="stats_duration">Durata totale</string>
+    <string name="stats_mood">🎭 Mood</string>
+    <string name="stats_genres">🎵 Generi</string>
+    <string name="stats_bpm">🥁 BPM</string>
+    <string name="stats_years">📅 Anni</string>
+    <string name="stats_top5">⚡ Top 5 Energia</string>
+    <string name="stats_avg_bpm">Media</string>
+    <string name="stats_min_bpm">Minimo</string>
+    <string name="stats_max_bpm">Massimo</string>
+</resources>
