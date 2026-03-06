@@ -40,7 +40,8 @@ class PlayerFragment : Fragment() {
     private lateinit var artworkBg: View
 
     private var player: MediaPlayer? = null
-    private var isPreparing = false     // FIX: blocca doppio start
+    private var isPreparing = false
+    private var currentlyPlayingPath: String? = null     // FIX: blocca doppio start
     private var isLoop = false
     private var isShuffle = false
     private val handler = Handler(Looper.getMainLooper())
@@ -123,9 +124,9 @@ class PlayerFragment : Fragment() {
                 playerContent.visibility = View.VISIBLE
                 tvNoSong.visibility = View.GONE
                 updateUI(song)
-                // Riavvia solo se è un brano diverso
-                val currentPath = try { player?.let { if (it.isPlaying || isPreparing) "playing" else "" } } catch (_: Exception) { null }
-                if (currentPath != "playing") {
+                // Avvia solo se è un brano DIVERSO da quello già in riproduzione
+                // Confronta il path per evitare doppio avvio da observer + chiamata diretta
+                if (song.path != currentlyPlayingPath) {
                     playSong(song)
                 }
             } else {
@@ -197,6 +198,8 @@ class PlayerFragment : Fragment() {
     }
 
     internal fun playSong(song: Song) {
+        if (song.path == currentlyPlayingPath && (player?.isPlaying == true || isPreparing)) return
+        currentlyPlayingPath = song.path
         stopPlayer()
         isPreparing = true
         btnPlay.text = "▶"
@@ -254,22 +257,23 @@ class PlayerFragment : Fragment() {
         val pl = vm.playlist; if (pl.isEmpty()) return
         vm.playlistIndex = (vm.playlistIndex + 1) % pl.size
         vm.setCurrentSong(pl[vm.playlistIndex])
-        playSong(pl[vm.playlistIndex])
+        // observer gestisce playSong
     }
     private fun playPrev() {
         val pl = vm.playlist; if (pl.isEmpty()) return
         vm.playlistIndex = (vm.playlistIndex - 1 + pl.size) % pl.size
         vm.setCurrentSong(pl[vm.playlistIndex])
-        playSong(pl[vm.playlistIndex])
+        // observer gestisce playSong
     }
     private fun playRandom() {
         val pl = vm.playlist; if (pl.isEmpty()) return
         vm.playlistIndex = (0 until pl.size).random()
         vm.setCurrentSong(pl[vm.playlistIndex])
-        playSong(pl[vm.playlistIndex])
+        // observer gestisce playSong
     }
 
     private fun stopPlayer() {
+        currentlyPlayingPath = null
         handler.removeCallbacks(updateProgress)
         isPreparing = false
         try { player?.stop() } catch (_: Exception) {}
@@ -322,8 +326,8 @@ class PlayerFragment : Fragment() {
         if (pl.isEmpty()) return
         vm.playlistIndex = (vm.playlistIndex + 1) % pl.size
         val next = pl[vm.playlistIndex]
+        // Imposta solo currentSong — l'observer chiamerà playSong automaticamente
         vm.setCurrentSong(next)
-        playSong(next)
     }
 
 }
